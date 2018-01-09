@@ -1,6 +1,6 @@
 {
   "name": "@bva/generator-shopify-theme",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Just an plain old ordinary boilerplate for a new Shopify theme",
   "homepage": "https://github.com/BVAccel/generator-shopify-theme",
   "author": {
