@@ -65,4 +65,4 @@ module.exports = class extends Generator {
       { includedPartials: this.props.includedPartials }
     );
   }
-});
+};

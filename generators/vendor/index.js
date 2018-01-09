@@ -97,4 +97,4 @@ module.exrts = class extends Generator {
       { ancillaryFiles: ancillaryFiles, vendorLibraries: this.props.vendorLibraries }
     );
   }
-});
+};
