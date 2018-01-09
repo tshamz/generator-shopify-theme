@@ -21,7 +21,7 @@ var ancillaryFiles = {
   }
 };
 
-module.exrts = class extends Generator {
+module.exports = class extends Generator {
   prompting () {
     this.log(chalk.red.bold('\nCREATING SCSS MANIFEST (vendor.scss)\n'));
 
