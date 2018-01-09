@@ -11,10 +11,10 @@ module.exports = class extends Generator {
     ));
   }
   writing () {
-    this.composeWith('shopify-theme:scaffolding');
-    this.composeWith('shopify-theme:build');
-    this.composeWith('shopify-theme:styles');
-    this.composeWith('shopify-theme:vendor');
+    this.composeWith('@bva/shopify-theme:scaffolding');
+    this.composeWith('@bva/shopify-theme:build');
+    this.composeWith('@bva/shopify-theme:styles');
+    this.composeWith('@bva/shopify-theme:vendor');
   }
   install () {
     // this.installDependencies();
