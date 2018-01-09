@@ -1,0 +1,24 @@
+{
+  "name": "shopify-build-tool",
+  "version": "0.1.1",
+  "description": "Build tool for Shopify development",
+  "license": "MIT",
+  "author": [
+    "Brand Value Accelerator <development@bvaccel.com> (http://bvaccel.com)"
+  ],
+  "main": [
+    "gulpfile.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://bvaccel.git.beanstalkapp.com/build-tool.git"
+  },
+  "dependencies": {
+    ".build": "https://bvaccel.git.beanstalkapp.com/build-tool.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "private": true
+}

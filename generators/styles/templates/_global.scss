@@ -1,0 +1,141 @@
+/* ==========================================================================
+   # GLOBAL
+   ========================================================================== */
+
+/**
+ * Simple page-level setup.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ * 4. https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/
+ * 5. https://davidwalsh.name/font-smoothing
+ */
+
+html {
+  font-size: $global-size-base;
+  line-height: $global-line-height;
+  overflow-y: scroll; /* [2] */
+  min-height: 100%; /* [3] */
+  -webkit-overflow-scrolling: touch; /* [4] */
+}
+
+body {
+  font-family: $global-font-primary;
+  color: $global-font-color;
+  -webkit-font-smoothing: antialiased; /* [5] */
+  -moz-osx-font-smoothing: grayscale; /* [5] */
+}
+
+@if ($enable-box-sizing-border-box) {
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+/* ==========================================================================
+   # HEADINGS
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin-bottom: $global-spacing-unit;
+}
+
+/* ==========================================================================
+   # IMAGES
+   ========================================================================== */
+
+/**
+ * 1. Fluid images for responsive purposes.
+ * 2. Offset `alt` text from surrounding copy.
+ * 3. Setting `vertical-align` removes the whitespace that appears under `img`
+ *    elements when they are dropped into a page as-is. Safer alternative to
+ *    using `display: block;`.
+ */
+
+img {
+  max-width: 100%; /* [1] */
+  font-style: italic; /* [2] */
+  vertical-align: middle; /* [3] */
+}
+
+/**
+ * 1. If a `width` and/or `height` attribute have been explicitly defined, let’s
+ *    not make the image fluid.
+ */
+
+img[width], /* [1] */
+img[height] {  /* [1] */
+  max-width: none;
+}
+
+/* ==========================================================================
+   # TABLES
+   ========================================================================== */
+
+/**
+ * 1. Ensure tables fill up as much space as possible.
+ */
+
+table {
+  width: 100%; /* [1] */
+}
+
+/* ==========================================================================
+   # OTHER
+   ========================================================================== */
+
+a {
+  color: $global-font-color;
+  text-decoration: none;
+  background: transparent;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+ol,
+ul,
+dd {
+  margin-left: $global-spacing-unit;
+}
+
+input {
+  &:focus::-webkit-input-placeholder {
+    color: transparent !important;
+  }
+
+  &:focus:-moz-placeholder {
+    color: transparent !important;
+  }
+
+  &:focus::-moz-placeholder {
+    color: transparent !important;
+  }
+
+  &:focus:-ms-input-placeholder {
+    color: transparent !important;
+  }
+
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+  }
+}

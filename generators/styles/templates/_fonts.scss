@@ -1,0 +1,16 @@
+/* ==========================================================================
+   # @font-face
+   ========================================================================== */
+
+/**
+ * @font-face declaration using .woff format only
+ * http://caniuse.com/#search=woff
+ *
+ * @font-face {
+ *   font-family: "<FONT NAME>";
+ *   src: url("{{ '<FONT FILE.WOFF>' | file_url }}") format("woff");
+ *   font-weight: <FONT WEIGHT>;
+ *   font-style: <FONT WEIGHT>;
+ * }
+ *
+ */

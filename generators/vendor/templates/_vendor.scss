@@ -1,0 +1,10 @@
+//    _     _
+//   (_|   |_/
+//     |   | _        _|   _   ,_
+//     |   ||/ /|/|  / |  / \_/  |
+//      \_/ |_/ | |_/\/|_/\_/    |/
+//
+  <% vendorLibraries.forEach(function (library) { %><% if (ancillaryFiles.hasOwnProperty(library)) { %>
+  // <%= library %>
+  <% ancillaryFiles[library].stylesheets.forEach(function (stylesheet) { %>@import 'partials/<%= stylesheet.substr(1) %>';
+  <% }); %><% } %><% }); %>
