@@ -1,10 +1,10 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var mkdirp = require('mkdirp');
 
-module.exports = yeoman.Base.extend({
-  prompting: function () {
+module.exports = class extends Generator {
+  prompting () {
     this.log(chalk.red.bold('\nSCAFFOLDING DIRECTORY STRUCTURE\n'));
 
     var prompts = [{
@@ -18,9 +18,8 @@ module.exports = yeoman.Base.extend({
     return this.prompt(prompts).then(function (props) {
       this.props = props;
     }.bind(this));
-  },
-
-  writing: function() {
+  }
+  writing () {
     mkdirp('deploy');
     mkdirp('dev/images');
     mkdirp('dev/scripts/base');

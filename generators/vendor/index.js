@@ -1,5 +1,5 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 
@@ -21,8 +21,8 @@ var ancillaryFiles = {
   }
 };
 
-module.exports = yeoman.Base.extend({
-  prompting: function () {
+module.exrts = class extends Generator {
+  prompting () {
     this.log(chalk.red.bold('\nCREATING SCSS MANIFEST (vendor.scss)\n'));
 
     var prompts = [{
@@ -63,9 +63,8 @@ module.exports = yeoman.Base.extend({
     return this.prompt(prompts).then(function (props) {
       this.props = props;
     }.bind(this));
-  },
-
-  writing: function () {
+  }
+  writing () {
     this.props.vendorLibraries.forEach(function (library) {
       this.fs.copy(
         this.templatePath('_' + library),
