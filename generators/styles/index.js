@@ -24,8 +24,6 @@ module.exports = class extends Generator {
         value: 'helpers/functions',
         checked: true
       }, {
-        type: 'separator'
-      }, {
         name: chalk.blue.bold(' @import ') + '\'base/fonts\';',
         value: 'base/fonts'
       }, {

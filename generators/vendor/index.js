@@ -31,16 +31,10 @@ module.exports = class extends Generator {
       message: 'Which vendor libraries would you like to include?',
       choices: [{
         name: 'CartJS',
-        value: 'cart.js',
-        checked: true,
-        disabled: 'Required'
+        value: 'cart.js'
       }, {
         name: '$.cookie',
-        value: 'jquery.cookie.js',
-        checked: true,
-        disabled: 'Required'
-      }, {
-        type: 'separator'
+        value: 'jquery.cookie.js'
       }, {
         name: 'FitVids.js',
         value: 'jquery.fitvids.js'

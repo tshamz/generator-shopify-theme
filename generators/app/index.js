@@ -7,7 +7,7 @@ module.exports = class extends Generator {
   prompting () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      chalk.green('\nGet money.\nGet paid.\n')
+      chalk.green('\nsuuuuuuuup.\n')
     ));
   }
   writing () {
