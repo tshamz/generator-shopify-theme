@@ -54,7 +54,7 @@ module.exports = class extends Generator {
       var name = partialPath.split('/')[1];
       this.fs.copy(
         this.templatePath('_' + name + '.scss'),
-        this.destinationPath('./dev/styles/' + directory + '/_' + name)
+        this.destinationPath('./dev/styles/' + directory + '/_' + name + '.scss')
       );
     }, this)
     this.fs.copyTpl(
