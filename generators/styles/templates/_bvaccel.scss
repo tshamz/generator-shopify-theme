@@ -22,7 +22,7 @@
     //
     // HELPERS - Tools & Config. - Ideally nothing here should output CSS
 
-      <% includedPartials.forEach(function (path) { %><% if (path.indexOf('base/') && !path.indexOf('/shame')) { %>@import '<%= path -%>';
+      <% includedPartials.forEach(function (path) { %><% if (path.includes('helpers/')) { %>@import '<%= path -%>';
       <% } %><% }); %>
 
 
@@ -34,7 +34,7 @@
     //
     // BASE - Boilerplate Sheet
 
-      <% includedPartials.forEach(function (path) { %><% if (path.indexOf('helpers/')) { %>@import '<%= path -%>';
+      <% includedPartials.forEach(function (path) { %><% if (path.includes('base/') && !path.includes('/shame')) { %>@import '<%= path -%>';
       <% } %><% }); %>
 
 
@@ -77,6 +77,6 @@
     //  /(__/|  |/\/|_/ | | |_/|_/
     //
 
-    <% includedPartials.forEach(function (path) { %><% if (path.indexOf('/shame')) { %>@import '<%= path -%>';
+    <% includedPartials.forEach(function (path) { %><% if (path.includes('/shame')) { %>@import '<%= path -%>';
     <% } %><% }); %>
 
