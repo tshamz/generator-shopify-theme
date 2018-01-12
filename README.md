@@ -32,6 +32,8 @@ cd new-project-directory
 
 From there, you can either run `yo` and select `@bva/shopify-theme` from the list of generators, or just run the generator directly with `yo @bva/shopify-theme`.
 ```bash
+yo
+# or
 yo @bva/shopify-theme
 ```
 
