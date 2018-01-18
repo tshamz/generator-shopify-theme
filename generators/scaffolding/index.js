@@ -82,8 +82,8 @@ module.exports = class extends Generator {
         templates[directory].forEach(function (template) {
           this.fs.copy(
             this.templatePath(template),
-            this.destinationPath('./dev/liquid/' + directory + '/' + template);
-          )
+            this.destinationPath('./dev/liquid/' + directory + '/' + template)
+          );
         }, this);
       }
     }
