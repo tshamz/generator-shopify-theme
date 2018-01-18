@@ -1,0 +1,54 @@
+<meta property="og:title" content="{{ page_title }}" />
+<meta property="og:url" content="{{ canonical_url }}" />
+<meta property="og:site_name" content="{{ shop.name }}" />
+
+{% if page_description %}
+  <meta property="og:description" content="{{ page_description }}" />
+{% endif %}
+
+{% if template contains 'product' %}
+
+  {% for image in product.images %}
+    <meta property="og:image" content="http:{{ image | img_url: '600x' }}" />
+    <meta property="og:image:secure_url" content="https:{{ image | img_url: '600x' }}" />
+  {% endfor %}
+
+  <meta property="og:type" content="product" />
+  <meta property="og:price:amount" content="{{ product.price | money_without_currency }}" />
+  <meta property="og:price:currency" content="{{ shop.currency }}" />
+
+{% elsif template contains 'article' %}
+
+  {% assign img_tag = '<' | append: 'img' %}
+
+  {% if article.image %}
+
+    <meta property="og:image" content="http:{{ article | img_url: '600x' }}" />
+    <meta property="og:image:secure_url" content="https:{{ article | img_url: '600x' }}" />
+
+  {% elsif article.content contains img_tag %}
+
+    {% assign src = article.content | split: 'src="' %}
+    {% assign src = src[1] | split: '"' | first | remove: 'https:' | remove: 'http:' %}
+
+    {% if src %}
+      <meta property="og:image" content="http:{{ src }}" />
+      <meta property="og:image:secure_url" content="https:{{ src }}" />
+    {% endif %}
+
+  {% else %}
+
+    <meta property="og:image" content="http:{{ 'open-graph-image.jpg' | assets_url }}" />
+    <meta property="og:image:secure_url" content="https:{{ 'open-graph-image.jpg' | assets_url }}" />
+
+  {% endif %}
+
+  <meta property="og:type" content="article" />
+
+{% else %}
+
+  <meta property="og:image" content="http:{{ 'open-graph-image.jpg' | assets_url }}" />
+  <meta property="og:image:secure_url" content="https:{{ 'open-graph-image.jpg' | assets_url }}" />
+  <meta property="og:type" content="website" />
+
+{% endif %}

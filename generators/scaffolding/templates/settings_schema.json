@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social Links"
+      }, {
+        "type": "text",
+        "id": "facebook_url",
+        "label": "Facebook URL"
+      }, {
+        "type": "text",
+        "id": "instagram_url",
+        "label": "Instagram URL"
+      }, {
+        "type": "text",
+        "id": "twitter_url",
+        "label": "Twitter URL"
+      }, {
+        "type": "text",
+        "id": "pinterest_url",
+        "label": "Pinterest URL"
+      }, {
+        "type": "text",
+        "id": "tumblr_url",
+        "label": "Tumblr URL"
+      }, {
+        "type": "text",
+        "id": "youtube_url",
+        "label": "YouTube URL"
+      }
+    ]
+  }
+]

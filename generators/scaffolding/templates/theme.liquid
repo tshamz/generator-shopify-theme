@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="{{ canonical_url }}" />
+    <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+
+    <!-- Title and Description ================================ -->
+    <title>
+      {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}" />
+    {% endif %}
+
+    <!-- Product Meta ========================================= -->
+    {% include 'open-graph-tags' %}
+    {% include 'twitter-card' %}
+
+    <!-- Header Content ======================================= -->
+    {{ content_for_header }}
+
+    <!-- Stylesheets ========================================== -->
+    <!-- <link href="{{ 'vendor.css' | asset_url }}" rel="preload" as="style"> -->
+    <!-- <link href="{{ 'bvaccel.css' | asset_url }}" rel="preload" as="style"> -->
+    <link href="{{ 'vendor.css' | asset_url }}" rel="stylesheet">
+    <link href="{{ 'bvaccel.css' | asset_url }}" rel="stylesheet">
+
+    <!-- jQuery =============================================== -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Shop API ============================================= -->
+    <script>
+      window.shop = {
+        template: {{ template | json }},
+        currentPage: {{ current_page }},
+        customerIsLogged: {% if customer %}true{% else %}false{% endif %},
+        shopCurrency: {{ shop.currency | json }},
+        moneyFormat: {{ shop.money_format | json }},
+        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+        collectionSortBy: {{ collection.sort_by | default: collection.default_sort_by | json }}
+      }
+    </script>
+
+  </head>
+
+  <body id="{{ page_title | handle }}" class="template__{{ template | replace: '.', '--' }} {% if customer %}customer-logged-in{% endif %}">
+
+    <div class="overlay" data-overlay></div>
+
+    {% include 'inline-cart' %}
+
+    <header class=""></header>
+
+    <main class="">{{ content_for_layout }}</main>
+
+    <footer class=""></footer>
+
+    <!-- Footer Scripts ======================================= -->
+    <script src="{{ 'vendor.js' | asset_url }}"></script>
+    <script src="{{ 'bvaccel.js' | asset_url }}"></script>
+    <script>
+      (function bvaInit() {
+
+        CartJS.init({{ cart | json }});
+        FastClick.attach(document.body);
+
+        // Init Modules
+      	// ============
+        // Helpers.init();
+        // InlineCart.init();
+        // Modal.init();
+        // Overlay.init();
+        // Scroll.init();
+        // LazyLoad.init();
+
+      })();
+    </script>
+
+    {% include 'external-scripts' %}
+
+  </body>
+</html>
